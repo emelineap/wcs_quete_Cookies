@@ -1,13 +1,18 @@
 <?php
 
+// On initialise la session
 session_start();
 
+// Si un username a été rempli, on le stocke dans la variable $_SESSION
+// Sinon, on renvoie vers la page de login
 if (isset($_POST['loginname'])) {
     $_SESSION['loginname'] = $_POST['loginname'];
 } elseif (empty($_SESSION)) {
     header('Location: login.php');
 }
 
+// Quand le user clique sur "add to cart", on récupère l'id du produit et on le stocke dans $cart
+// On renvoie vers la page index.php sans paramètres en url pour que le produit ne soit pas ajouté plusieurs fois si on recharge la page
 if (isset($_GET['add_to_cart'])) {
     $cart = isset($_COOKIE['cart_id']) ? unserialize($_COOKIE['cart_id']) : array();
     array_push($cart, $_GET['add_to_cart']);

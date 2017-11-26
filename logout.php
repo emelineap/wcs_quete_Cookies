@@ -1,17 +1,14 @@
 <?php
 
-// Initialisation de la session.
-// Si vous utilisez un autre nom
-// session_name("autrenom")
 session_start();
 
-// Détruit toutes les variables de session
+// On détruit toutes les variables de session
 $_SESSION = array();
+
+// On détruit les cookies enregistrés
 setcookie("cart_id", $_COOKIE['cart_id'], time() -3600);
 
-// Si vous voulez détruire complètement la session, effacez également
-// le cookie de session.
-// Note : cela détruira la session et pas seulement les données de session !
+// On détruit le cookie de session
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -20,7 +17,8 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Finalement, on détruit la session.
+// On détruit la session.
 session_destroy();
 
+// On renvoie vers la page de login
 header('Location: login.php');

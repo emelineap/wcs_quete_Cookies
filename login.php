@@ -2,6 +2,7 @@
 
 session_start();
 
+// Si un username a été rempli, on accède à la page index.php
 if (isset($_SESSION['loginname'])) {
     header('Location: index.php');
 }

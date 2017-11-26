@@ -11,6 +11,9 @@ require 'inc/head.php';
         have <?php echo isset($_COOKIE['cart_id']) ? count(unserialize($_COOKIE['cart_id'])) : "0" ?> item(s) in your
         shopping cart!</h4>
     <div class="row">
+
+        // Si au moins un produit a été ajouté au panier, on l'affiche sur la page
+        // Sinon, on affiche "Your shopping cart is empty"
         <ul>
             <?php
             if (isset($_COOKIE['cart_id'])) {
