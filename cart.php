@@ -12,8 +12,8 @@ require 'inc/head.php';
         shopping cart!</h4>
     <div class="row">
 
-        // Si au moins un produit a été ajouté au panier, on l'affiche sur la page
-        // Sinon, on affiche "Your shopping cart is empty"
+        <!-- Si au moins un produit a été ajouté au panier, on l'affiche sur la page
+        Sinon, on affiche "Your shopping cart is empty" -->
         <ul>
             <?php
             if (isset($_COOKIE['cart_id'])) {
